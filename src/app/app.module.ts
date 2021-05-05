@@ -9,6 +9,7 @@ import { HeroSelectionPageComponent } from './hero-selection-page/hero-selection
 import { HeroesListComponent } from './user-info/heroes-list/heroes-list.component';
 import { HistoryComponent } from './user-info/history/history.component';
 import { PowerupsComponent } from './user-info/powerups/powerups.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,9 @@ import { PowerupsComponent } from './user-info/powerups/powerups.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,17 +1,24 @@
-<form class="card">
+<form class="card" [formGroup]="form" (ngSubmit)="submit()">
+  <h2>Authentication</h2>
 
   <div class="form-control">
     <label for="email">Enter your email:</label>
-    <input id="email" type="email">
-    <div class="validator">
-      <small>Error message</small>
+    <input id="email" type="email" formControlName="email">
+    <div
+      class="validation"
+      *ngIf="form.get('email').touched && form.get('email').invalid"
+    >
+      <small *ngIf="!form.get('email').value">Email is required; </small>
+      <small *ngIf="form.get('email').errors.notAllowedEmails">Supports only .com, .net, .org, .co, .us domains; </small>
+      <small *ngIf="form.get('email').errors.notAllowedDots">Allowed only 3 dots; </small>
+      <small *ngIf="form.get('email').errors.notAllowedLength">Allowed only 5 characters after @; </small>
     </div>
   </div>
 
   <div class="form-control">
     <label for="password">Enter your password:</label>
-    <input id="password" type="password">
-    <div class="validator">
+    <input id="password" type="password" formControlName="password">
+    <div class="validation">
       <small>Error message</small>
     </div>
   </div>
@@ -19,10 +26,14 @@
   <div>
     <button
       type="submit"
-    class="btn btn-primary"
-    >Sign in</button>
+      class="btn btn-primary"
+      [disabled]="form.invalid"
+    >Sign in
+    </button>
+
     <button
-    class="btn btn-primary"
-    >Create New User</button>
+      class="btn btn-primary"
+    >Create New User
+    </button>
   </div>
 </form>

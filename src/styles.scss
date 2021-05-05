@@ -75,14 +75,14 @@ body {
   margin-bottom: .8rem;
 
   &.invalid {
-    color: var(--primary-color);
+    color: var(--danger-color);
     input {
       border-color: var(--primary-color);
     }
   }
 
   .validation {
-    color: var(--primary-color);
+    color: var(--danger-color);
   }
 }
 
