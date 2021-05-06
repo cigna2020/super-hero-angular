@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {MyValidators} from '../shared/my.validators';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup} from '@angular/forms';
 import {ValidatorService} from '../shared/validator.service';
-import {UserInterface} from '../shared/user.interface';
+import {User} from '../shared/interface';
+import {AuthService} from '../shared/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -12,25 +13,37 @@ import {UserInterface} from '../shared/user.interface';
 export class LoginPageComponent implements OnInit {
 
   form: FormGroup;
+  submitted = false;
 
-  constructor(private validatorService: ValidatorService) { }
+  constructor(
+    private validatorService: ValidatorService,
+    private auth: AuthService,
+    private router: Router
+  ) {
+  }
 
   ngOnInit(): void {
-    this.form = new FormGroup( {
+    this.form = new FormGroup({
       email: new FormControl(null, this.validatorService.emailValidator()),
       password: new FormControl(null, this.validatorService.passwordValidator())
     });
   }
 
   submit(): void {
-    console.log(this.form.value);
     if (this.form.invalid) {
-      console.log('Form is invalid!!!');
+      alert('Form is invalid!!!');
       return;
     }
-    const user: UserInterface = {
+    this.submitted = true;
+    const user: User = {
       email: this.form.value.email,
       password: this.form.value.password
     };
+
+    this.auth.login(user).subscribe(() => {
+      this.form.reset();
+      this.router.navigate(['/selection']);
+      this.submitted = false;
+    });
   }
 }
