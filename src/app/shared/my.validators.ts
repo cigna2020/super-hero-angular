@@ -17,6 +17,7 @@ export class MyValidators {
   }
 
   static allowedLength(control: FormControl): { [key: string]: boolean } {
+
     const controlValue = control.value;
     if (controlValue !== null && controlValue.includes('@')) {
       const address = controlValue.slice(controlValue.indexOf('@') + 1, controlValue.length);

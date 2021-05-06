@@ -19,4 +19,12 @@ export class ValidatorService {
       Validators.pattern('^(?=.*[A-Z])(?=.*\\d)(?=.*[$%.&!-])[A-Za-z\\d$%.&!-]{5,}$')
     ];
   }
+
+  nameValidator(): ((control: AbstractControl) => ValidationErrors)[] {
+    return [
+      Validators.required,
+      Validators.minLength(8),
+      Validators.pattern('((^[a-z]|[A-Z])[a-z]*)+\\s([a-z][a-z]*)(-[a-z]+)')
+    ];
+  }
 }

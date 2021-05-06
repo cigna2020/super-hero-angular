@@ -10,6 +10,9 @@ import { HeroesListComponent } from './user-info/heroes-list/heroes-list.compone
 import { HistoryComponent } from './user-info/history/history.component';
 import { PowerupsComponent } from './user-info/powerups/powerups.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { AddUserComponent } from './login-page/add-user/add-user.component';
+import {ValidatorService} from './shared/validator.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,15 +22,17 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     HeroSelectionPageComponent,
     HeroesListComponent,
     HistoryComponent,
-    PowerupsComponent
+    PowerupsComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ValidatorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
