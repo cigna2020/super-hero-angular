@@ -22,7 +22,11 @@ export class LoginPageComponent implements OnInit {
         MyValidators.allowedDots,
         MyValidators.allowedLength
       ]),
-      password: new FormControl(null, [Validators.required, Validators.minLength(5)])
+      password: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(5),
+        Validators.pattern('^(?=.*[A-Z])(?=.*\d)(?=.*[$%.&!-])[A-Za-z\d$%.&!-]{5,}$')
+      ])
     });
   }
 
