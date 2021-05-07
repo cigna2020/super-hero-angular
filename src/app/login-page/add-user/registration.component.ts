@@ -7,10 +7,10 @@ import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-user',
-  templateUrl: './add-user.component.html',
-  styleUrls: ['./add-user.component.scss']
+  templateUrl: './registration.component.html',
+  styleUrls: ['./registration.component.scss']
 })
-export class AddUserComponent implements OnInit {
+export class RegistrationComponent implements OnInit {
 
   form: FormGroup;
   submitted = false;
