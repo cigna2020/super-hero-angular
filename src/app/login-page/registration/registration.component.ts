@@ -29,10 +29,6 @@ export class RegistrationComponent implements OnInit {
     });
   }
 
-//   static getUserName() {
-//     return this.form.value.text;
-// }
-
   createUser(): void {
     console.log(this.form);
     if (this.form.invalid) {

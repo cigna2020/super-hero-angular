@@ -1,17 +1,14 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import {LoginPageComponent} from './login-page/login-page.component';
-import {RegistrationComponent} from './login-page/add-user/registration.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {HeroSelectionPageComponent} from './hero-selection-page/hero-selection-page.component';
 
-const routes: Routes = [
-  {path: '', component: LoginPageComponent},
-  {path: 'registration', component: RegistrationComponent},
-  {path: 'selection', component: HeroSelectionPageComponent}
-];
+const routes: Routes = [];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes),
+  ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
