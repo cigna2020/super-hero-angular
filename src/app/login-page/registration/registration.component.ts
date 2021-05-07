@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormControl} from '@angular/forms';
 import {User} from '../../shared/interface';
 import {ValidatorService} from '../../shared/validator.service';
@@ -19,7 +19,8 @@ export class RegistrationComponent implements OnInit {
     private validatorService: ValidatorService,
     private auth: AuthService,
     private router: Router
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -30,12 +31,13 @@ export class RegistrationComponent implements OnInit {
   }
 
   createUser(): void {
-    console.log(this.form);
     if (this.form.invalid) {
-      alert('Form is invalid!!!');
       return;
     }
     this.submitted = true;
+    localStorage.setItem('userName', this.form.value.name);
+    localStorage.setItem('userEmail', this.form.value.email);
+
     const user: User = {
       email: this.form.value.email,
       password: this.form.value.password
