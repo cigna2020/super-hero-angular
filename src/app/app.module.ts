@@ -14,6 +14,7 @@ import {LoginPageModule} from './login-page/login-page.module';
 import {SharedModule} from './shared/shared.module';
 import {RegistrationModule} from './login-page/registration/registration.module';
 import {HeroSelectionPageModule} from './hero-selection-page/hero-selection-page.module';
+import {InvalidFieldService} from './shared/invalid-field.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import {HeroSelectionPageModule} from './hero-selection-page/hero-selection-page
     HeroSelectionPageModule,
     SharedModule
   ],
-  providers: [ValidatorService],
+  providers: [ValidatorService, InvalidFieldService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

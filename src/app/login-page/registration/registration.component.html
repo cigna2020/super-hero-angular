@@ -1,45 +1,27 @@
-<form class="card" [formGroup]="form" >
+<form class="card" [formGroup]="form">
   <h2>Create New User</h2>
 
   <div class="form-control">
     <label for="userName">Enter your full name</label>
     <input id="userName" type="text" formControlName="name">
-    <div
-      class="validation"
-      *ngIf="form.get('name').touched && form.get('name').invalid"
-    >
-      <small *ngIf="!form.get('name').value">Field name is required; </small>
-      <small *ngIf="form.get('name').errors.minLength">Name should contain at least 8 characters; </small>
-      <small *ngIf="form.get('name').errors.pattern">Name should contain two words, kebab-case, camelCase, Space
-        Case; </small>
+    <div class="validation" *ngIf="form.get('name').touched && form.get('name').invalid">
+      <small *ngIf="invalidFieldService.showInvalidNameMessage(form)">{{ invalidFieldService.invalidNameMessage }}</small>
     </div>
   </div>
 
   <div class="form-control">
     <label for="email">Enter your email:</label>
     <input id="email" type="email" formControlName="email">
-    <div
-      class="validation"
-      *ngIf="form.get('email').touched && form.get('email').invalid"
-    >
-      <small *ngIf="!form.get('email').value">Email is required; </small>
-      <small *ngIf="form.get('email').errors.notAllowedEmails">Supports only .com, .net, .org, .co, .us domains; </small>
-      <small *ngIf="form.get('email').errors.notAllowedDots">Allowed only 3 dots; </small>
-      <small *ngIf="form.get('email').errors.notAllowedLength">Allowed only 5 characters after @; </small>
+    <div class="validation" *ngIf="form.get('email').touched && form.get('email').invalid">
+      <small *ngIf="invalidFieldService.showInvalidEmailMessage(form)">{{ invalidFieldService.invalidEmailMessage }}</small>
     </div>
   </div>
 
   <div class="form-control">
     <label for="password">Enter your password:</label>
     <input id="password" type="password" formControlName="password">
-    <div class="validation"
-         *ngIf="form.get('password').touched && form.get('password').invalid"
-    >
-      <small *ngIf="!form.get('password').value">Password is required; </small>
-      <small *ngIf="form.get('password').errors.minlength">Password should be at least 5 characters length; </small>
-      <small *ngIf="form.get('password').errors.pattern">
-        Password should contain: at least one uppercase letter, one number, one special symbol. $ % . & ! -;
-      </small>
+    <div class="validation" *ngIf="form.get('password').touched && form.get('password').invalid">
+      <small *ngIf="invalidFieldService.showInvalidPasswordMessage(form)">{{ invalidFieldService.invalidPasswordMessage }}</small>
     </div>
   </div>
 

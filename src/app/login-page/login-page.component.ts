@@ -4,6 +4,7 @@ import {ValidatorService} from '../shared/validator.service';
 import {User} from '../shared/interface';
 import {AuthService} from '../shared/auth.service';
 import {Router} from '@angular/router';
+import {InvalidFieldService} from '../shared/invalid-field.service';
 
 @Component({
   selector: 'app-login-page',
@@ -18,7 +19,8 @@ export class LoginPageComponent implements OnInit {
   constructor(
     private validatorService: ValidatorService,
     private auth: AuthService,
-    private router: Router
+    private router: Router,
+    public invalidFieldService: InvalidFieldService
   ) {
   }
 
