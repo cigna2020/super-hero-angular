@@ -1,16 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormControl} from '@angular/forms';
 import {User} from '../../shared/interface';
 import {ValidatorService} from '../../shared/validator.service';
 import {AuthService} from '../../shared/auth.service';
 import {Router} from '@angular/router';
+import {InvalidFieldService} from '../../shared/invalid-field.service';
 
 @Component({
   selector: 'app-add-user',
-  templateUrl: './add-user.component.html',
-  styleUrls: ['./add-user.component.scss']
+  templateUrl: './registration.component.html',
+  styleUrls: ['./registration.component.scss']
 })
-export class AddUserComponent implements OnInit {
+export class RegistrationComponent implements OnInit {
 
   form: FormGroup;
   submitted = false;
@@ -18,8 +19,10 @@ export class AddUserComponent implements OnInit {
   constructor(
     private validatorService: ValidatorService,
     private auth: AuthService,
-    private router: Router
-  ) { }
+    private router: Router,
+    public invalidFieldService: InvalidFieldService
+  ) {
+  }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -29,17 +32,14 @@ export class AddUserComponent implements OnInit {
     });
   }
 
-//   static getUserName() {
-//     return this.form.value.text;
-// }
-
   createUser(): void {
-    console.log(this.form);
     if (this.form.invalid) {
-      alert('Form is invalid!!!');
       return;
     }
     this.submitted = true;
+    localStorage.setItem('userName', this.form.value.name);
+    localStorage.setItem('userEmail', this.form.value.email);
+
     const user: User = {
       email: this.form.value.email,
       password: this.form.value.password

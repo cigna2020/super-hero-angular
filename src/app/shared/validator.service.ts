@@ -24,7 +24,7 @@ export class ValidatorService {
     return [
       Validators.required,
       Validators.minLength(8),
-      Validators.pattern('((^[a-z]|[A-Z])[a-z]*)+\\s([a-z][a-z]*)(-[a-z]+)')
+      Validators.pattern('((^[a-z]+[A-Z])[a-z]*)+\\s([a-z][a-z]*)(-[a-z]+)')
     ];
   }
 }

@@ -18,12 +18,12 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  background-color: #fff;
-  color: #333;
+  background-color: #ffffff;
+  color: #333333;
 }
 
 .wrapper {
-  max-width: 1100px;
+  max-width: 69rem;
   margin: 0 auto;
   overflow: hidden;
   padding: 0 2rem;
@@ -37,14 +37,14 @@ body {
 
 .card {
   padding: 1rem;
-  border: #ccc 1px dotted;
+  border: #cccccc .1rem dotted;
   margin: 0.7rem 0;
 }
 
 .btn {
   display: inline-block;
   background: var(--light-color);
-  color: #333;
+  color: #333333;
   padding: 0.4rem 1.3rem;
   font-size: 1rem;
   border: none;
@@ -56,13 +56,13 @@ body {
   &:disabled {
     cursor: not-allowed;
     background: var(--light-color);
-    color: #111;
+    color: #111111;
   }
 }
 
 .btn-primary {
   background: var(--primary-color);
-  color: #fff;
+  color: #ffffff;
 }
 
 .btn:hover {
@@ -71,7 +71,7 @@ body {
 
 .form-control {
   display: block;
-  color: #888;
+  color: #888888;
   margin-bottom: .8rem;
 
   &.invalid {
@@ -96,7 +96,7 @@ textarea {
   width: 100%;
   padding: 0.4rem;
   font-size: 1.2rem;
-  border: 1px solid #ccc;
+  border: .1rem solid #cccccc;
 }
 
 input[type='submit'],
