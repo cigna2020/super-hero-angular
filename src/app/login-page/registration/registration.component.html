@@ -4,7 +4,7 @@
   <div class="form-control">
     <label for="userName">Enter your full name</label>
     <input id="userName" type="text" formControlName="name">
-    <div class="validation" *ngIf="form.get('name').touched && form.get('name').invalid">
+    <div class="validation" *ngIf="invalidFieldService.isTouchedField(form, 'name')">
       <small *ngIf="invalidFieldService.showInvalidNameMessage(form)">{{ invalidFieldService.invalidNameMessage }}</small>
     </div>
   </div>
@@ -12,7 +12,7 @@
   <div class="form-control">
     <label for="email">Enter your email:</label>
     <input id="email" type="email" formControlName="email">
-    <div class="validation" *ngIf="form.get('email').touched && form.get('email').invalid">
+    <div class="validation" *ngIf="invalidFieldService.isTouchedField(form, 'email')">
       <small *ngIf="invalidFieldService.showInvalidEmailMessage(form)">{{ invalidFieldService.invalidEmailMessage }}</small>
     </div>
   </div>
@@ -20,7 +20,7 @@
   <div class="form-control">
     <label for="password">Enter your password:</label>
     <input id="password" type="password" formControlName="password">
-    <div class="validation" *ngIf="form.get('password').touched && form.get('password').invalid">
+    <div class="validation" *ngIf="invalidFieldService.isTouchedField(form, 'password')">
       <small *ngIf="invalidFieldService.showInvalidPasswordMessage(form)">{{ invalidFieldService.invalidPasswordMessage }}</small>
     </div>
   </div>

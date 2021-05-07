@@ -46,6 +46,11 @@ export class InvalidFieldService {
       return 'form.get("password").errors.pattern';
     }
   }
+
+  isTouchedField(form, fieldName): boolean {
+    const field = form.get(fieldName);
+    return field.touched && field.invalid;
+  }
 }
 
 
